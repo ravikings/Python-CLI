@@ -109,7 +109,7 @@ def cli(file, column, fileformat, concurrency):
             click.echo(i)
 
     except Exception as e:
-        print(f'There was a from the input, please fix and try again: \n Error is:{str(e)}' )
+        print(f'There was a from the input, please fix and try again: \n Input error is:{str(e)}' )
 
 if __name__ == '__main__':
     cli()
