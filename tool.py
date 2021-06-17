@@ -103,15 +103,18 @@ class ReadCsvFiles:
 @click.option('--concurrency', help='please specific number of worker to get the job done',  type=int)
 def cli(file, column, fileformat, concurrency):
     output = ReadCsvFiles(file, column, fileformat, concurrency)
-    val = output.avgColumn()
-    for i in val:
-        click.echo(i)
+    try:
+        val = output.avgColumn()
+        for i in val:
+            click.echo(i)
 
+    except Exception as e:
+        print(f'There was a from the input, please fix and try again: \n Error is:{str(e)}' )
 
 if __name__ == '__main__':
     cli()
 
-# python classRead.py --file intelepeer --column quantity --fileformat csv --concurrency 2
+# python tool.py --file intelepeer --column quantity --fileformat csv --concurrency 2
 
 # p = ReadCsvFiles("intelepeer", "quantity", "csv", 2)
 # x = p.csvColumn()
